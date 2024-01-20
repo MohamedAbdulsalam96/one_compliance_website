@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- <meta name="theme-color" content="#000000" /> -->
+    <meta name="description" content=""/>
+    <title>One Compliance</title>
+    <link rel="shortcut icon" href="\favicon 1.ico" type="image/x-icon">
+	 <!-- <link rel="canonical" href="https://frappehealth.com/home"> -->
+    <link rel="stylesheet" href="style.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link rel='stylesheet' href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css'>
+    
+  <body onload="get_testimonials();">
+    
+    <div id="root"></div>
+
+    <script src="maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+
+    <script src="cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+
+    <script src="js/jquery.min.js"></script>
+
+    <script src="js/popper.min.js"></script>
+
+    <script src="js/bootstrap.min.js"></script>
+
+    <script src="js/uza.bundle.js"></script>
+
+    <script src="js/default-assets/active.js"></script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-23581568-13');
+    </script>
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v84a3a4012de94ce1a686ba8c167c359c1696973893317" integrity="sha512-euoFGowhlaLqXsPWQ48qSkBSCFs3DPRyiwVu3FjR96cMPx+Fr+gpWRhIafcHwqwCqWS42RZhIudOvEI+Ckf6MA==" data-cf-beacon='{"rayId":"81e9d584fe964c11","version":"2023.10.0","token":"cd0b4b3a733644fc843ef0b185f98241"}'
+        crossorigin="anonymous"></script>
+
+    <script>
+      function get_testimonials() {
+        jQuery.ajax({
+          url: "https://onecompliance.frappe.cloud/api/method/get_testimonials",
+          type: "GET",
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          Credential: "include",
+          cookie: "sid=Guest; system_user=no; full_name=Guest; user_id=Guest; user_image=",
+          success: function (response) {
+            const apiResult = response.data
+            console.log('apiResult : ', apiResult);
+            const container = document.getElementById('testimonial_list');
+            
+      
+              },
+              error: function (xhr, status, error) {
+                console.error(error);
+                console.log('error');
+              }
+            });
+          }
+    </script>
+      
+  </body>
+</html>
